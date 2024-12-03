@@ -1,0 +1,159 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="600"
+        x:Class="Proyecto.MainWindow"
+        Title="Proyecto"
+	    WindowStartupLocation="CenterScreen"
+		Background="LightGray">
+  <Grid> 
+	<Image Source="/Images/home.png" IsHitTestVisible="False" Stretch="UniformToFill"/>
+   <ScrollViewer>
+		<TabControl>
+        <TabItem Header="Home" FontWeight="Bold"> 
+			
+			<StackPanel>
+				<TextBlock Text="Bienvenidos a EventWORLD" HorizontalAlignment="Center" VerticalAlignment="Top"
+						   FontStyle="Italic" FontWeight="Bold" FontSize="40"/> 
+				<StackPanel x:Name="Lista_eventos" Orientation="Horizontal" HorizontalAlignment="Center" IsVisible="False">
+					<Border x:Name="evento1" Width="200" Height="200" BorderBrush="Black" BorderThickness="2" Background="LightGray" Margin="20" IsVisible="False">
+						<StackPanel HorizontalAlignment="Center">
+							<Image Source="/Images/Concierto.jpg" x:Name="fotoevento1" IsVisible="false" Stretch="UniformToFill"/>
+							<TextBlock x:Name="tbknombreevento1" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+							<TextBlock x:Name="tbkfechaevento1" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+							<TextBlock x:Name="tbkcostoevento1" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+							<Button x:Name="btnevento1" IsVisible="False" HorizontalAlignment="Center">Comprar Entrada</Button>
+						</StackPanel>
+					</Border>
+					<Border x:Name="evento2" Width="200" Height="200" BorderBrush="Black" BorderThickness="2" Background="LightGray" Margin="20" IsVisible="False">
+							<StackPanel HorizontalAlignment="Center">
+								<Image Source="/Images/Matrimonio.jpg" x:Name="fotoevento2" IsVisible="false" Stretch="UniformToFill"/>
+								<TextBlock x:Name="tbknombreevento2" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+								<TextBlock x:Name="tbkfechaevento2" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+								<TextBlock x:Name="tbkcostoevento2" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+								<Button x:Name="btnevento2" IsVisible="False">Comprar Entrada</Button>
+							</StackPanel>
+						</Border>
+					<Border x:Name="evento3" Width="200" Height="200" BorderBrush="Black" BorderThickness="2" Background="LightGray" Margin="20" IsVisible="False">
+						<StackPanel HorizontalAlignment="Center">
+							<Image Source="/Images/Graduacio.jpg" x:Name="fotoevento3" IsVisible="false" Stretch="UniformToFill"/>
+							<TextBlock x:Name="tbknombreevento3" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+							<TextBlock x:Name="tbkfechaevento3" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+							<TextBlock x:Name="tbkcostoevento3" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+							<Button Click="btnevento3" IsVisible="False">Comprar Entrada</Button>
+						</StackPanel>
+					</Border>
+				</StackPanel>
+			</StackPanel>
+        </TabItem>
+		
+        <TabItem Header="Clientes" FontWeight="Bold">
+            <StackPanel Margin="10">
+                <TextBlock Text="Ingreso de Clientes:" FontWeight="Bold" HorizontalAlignment="Center" 
+						   FontSize="15"/>
+				<TextBox x:Name="tbPresupuesto" Watermark="Presupuesto" Width="300" Height="30"/>
+				<TextBox x:Name="tbRut" Watermark="RUN: 12345678" Width="300" Height="30" />
+				<TextBox x:Name="tbVerificador" Watermark="Digito verificador: 0" Width="300" Height="30" />
+				<TextBox x:Name="tbNombre" Watermark="Nombre: Juan" Width="300" Height="30" />
+				<TextBox x:Name="tbApellidoPaterno" Watermark="Apellido Paterno: Perez" Width="300" Height="30" />
+				<TextBox x:Name="tbApellidoMaterno" Watermark="Apellido Materno: Pereira" Width="300" Height="30" />
+				<TextBox x:Name="tbTelefono" Watermark="Teléfono: +56912345678" Width="300" Height="30"/>
+				<CalendarDatePicker x:Name="fechaNacimiento" Width="300" Height="30" HorizontalAlignment="Center"/>
+                <Button Click="Ingresar_Click" HorizontalAlignment="Center"> Ingresar Cliente</Button>
+					<TextBlock Margin="0,10,10,0" Text="Informacion: " HorizontalAlignment="Center"/>
+				<Border Width="200" Height="200" BorderBrush="Black" BorderThickness="2" Background="LightGray">
+					<StackPanel>
+						<TextBlock x:Name="tbkIngresado" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkPresupuesto" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkRut" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkVerificador" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkNombre" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkApellidoPaterno" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkApellidoMaterno" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkTelefono" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkNacimiento" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+					</StackPanel>
+				</Border>
+			    <TextBlock>¿Desea Eliminar Cliente?</TextBlock>
+			    <Button Click="Eliminar_Click" FontWeight="Bold" HorizontalAlignment="Left"> Eliminar Cliente</Button>
+				<Button Click="Mostrar_Click" FontWeight="Bold" HorizontalAlignment="Right"> Mostrar Cliente</Button>
+            </StackPanel>
+
+        </TabItem>
+        <TabItem Header="Eventos" FontWeight="Bold">
+            <StackPanel Margin="10">
+                <TextBlock Text="Ingreso de Eventos:" FontWeight="Bold" HorizontalAlignment="Center" 
+						   FontSize="15"/>
+				<TextBox x:Name="tbnombrevento" Watermark="nombre evento" Width="300" Height="30" />
+				<TextBox x:Name="tbidevento" Watermark="ID" Width="300" Height="30" />
+				<CalendarDatePicker x:Name="fechaevento" Width="300" Height="30" HorizontalAlignment="Center"/>
+				<TextBox x:Name="tbruttrabajador" Watermark="rut del trabajador asociado" Width="300" Height="30" />
+				<TextBox x:Name="tbcosto" Watermark="costo" Width="300" Height="30" />
+
+				<TextBlock Text="Selecciona el tipo de evento:" FontSize="16" Margin="0,0,0,10"/>
+				<RadioButton Content="Concierto" GroupName="TipoEvento" IsChecked="{Binding IsConcierto}"/>
+				<RadioButton Content="Graduación" GroupName="TipoEvento" IsChecked="{Binding IsGraduacion}"/>
+				<RadioButton Content="Matrimonio" GroupName="TipoEvento" IsChecked="{Binding IsMatrimonio}"/>
+				<TextBlock Text="{Binding TipoSeleccionado}" Margin="0,20,0,0"/>
+				
+                <Button Click="Ingresare_Click" HorizontalAlignment="Center"> Ingresar Evento</Button>
+			</StackPanel>
+        </TabItem>
+        <TabItem Header="RR.HH" FontWeight="Bold">
+            <StackPanel Margin="10">
+                <TextBlock Text="Ingreso de Trabajadores:" FontWeight="Bold" HorizontalAlignment="Center" 
+						   FontSize="15"/>
+				<TextBox x:Name="tbRutt" Watermark="RUN: 12345678" Width="300" Height="30" />
+				<TextBox x:Name="tbVerificadort" Watermark="Digito verificador: 0" Width="300" Height="30" />
+				<TextBox x:Name="tbNombret" Watermark="Nombre: Juan" Width="300" Height="30" />
+				<TextBox x:Name="tbApellidoPaternot" Watermark="Apellido Paterno: Perez" Width="300" Height="30" />
+				<TextBox x:Name="tbApellidoMaternot" Watermark="Apellido Materno: Pereira" Width="300" Height="30" />
+				<TextBox x:Name="tbTelefonot" Watermark="Teléfono: +56912345678" Width="300" Height="30"/>
+				<CalendarDatePicker x:Name="fechaNacimientot" Width="300" Height="30" HorizontalAlignment="Center"/>
+				<TextBox x:Name="tbAfp" Watermark="Entidad Afp" Width="300" Height="30"/>
+				<TextBox x:Name="tbSB" Watermark="Sueldo Bruto: 10000" Width="300" Height="30"/>
+				<TextBox x:Name="tbColacion" Watermark="Colacion: 5000" Width="300" Height="30"/>
+				<TextBox x:Name="tbPasaje" Watermark="Pasaje: 10000" Width="300" Height="30"/>
+				<TextBox x:Name="tbDescuentoAfp" Watermark="Descuento afp: 20000" Width="300" Height="30"/>
+				<TextBox x:Name="tbDescuentoSalud" Watermark="Descuento Salud: 30000" Width="300" Height="30"/>
+                <Button Click="Ingresart_Click" HorizontalAlignment="Center"> Ingresar Trabajador</Button>
+					<TextBlock Margin="0,10,10,0" Text="Informacion: " HorizontalAlignment="Center"/>
+				<Border Width="300" Height="200" BorderBrush="Black" BorderThickness="2" Background="LightGray">
+					<StackPanel>
+						<TextBlock x:Name="tbkRutt" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkVerificadort" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkNombret" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkApellidoPaternot" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkApellidoMaternot" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkTelefonot" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+						<TextBlock x:Name="tbkNacimientot" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+					</StackPanel>
+				</Border>
+			    <TextBlock>¿Desea Eliminar Trabajador?</TextBlock>
+			    <Button Click="Eliminart_Click" FontWeight="Bold" HorizontalAlignment="Left"> Eliminar Trabajador</Button>
+				<Button Click="Mostrart_Click" FontWeight="Bold" HorizontalAlignment="Right"> Mostrar Trabajador</Button>
+				
+            </StackPanel>
+        </TabItem>
+	     <TabItem Header="Proveedores" FontWeight="Bold">
+            <Border Width="250" Height="350" BorderBrush="Black" BorderThickness="2" Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Top">
+				<StackPanel Margin="10">
+					<TextBlock Text="Seleccione servicios:" FontWeight="Bold" Margin="0,0,0,10"/>
+					<CheckBox Content="Catering" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+					<CheckBox Content="Animación" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+					<CheckBox Content="Diseño y Montaje" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+					<CheckBox Content="Gestión de Invitados" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+					<CheckBox Content="Sonido y Ilumicación" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+					<CheckBox Content="Busqueda de Espacio" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+					<TextBlock x:Name="tbkNotificacion" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+					<TextBlock x:Name="tbkNotificacionn" IsVisible="False" HorizontalAlignment="Center" FontWeight="Bold"/>
+				</StackPanel>
+				
+				
+			</Border>
+        </TabItem>
+		</TabControl>
+	</ScrollViewer>
+  </Grid>
+</Window>
